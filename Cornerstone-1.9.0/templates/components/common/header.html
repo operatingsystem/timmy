@@ -1,0 +1,97 @@
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    <div class="banner">
+        {{{limit banners.top 1}}}
+    </div>
+</div>
+{{/if}}
+<header class="header" role="banner">
+
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    <nav class="mobile-nav only-small-screen">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a class=" navPages-action" href="{{urls.account.wishlists.all}}"><i class="fa fa-heart-o" aria-hidden="true"></i>{{customer.wishlists.num_items}}</a>
+            </li>
+            <li class="list-inline-item">
+                <a class="navPages-action navPages-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </li>
+            <li class="list-inline-item navPages-item--cart">
+                <a
+                class="navPages-action"
+                data-cart-preview
+                data-dropdown="cart-preview-dropdown"
+                data-options="align:right"
+                href="{{urls.cart}}">
+                <span class="navPages-item-cartLabel"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+        </li>
+
+    </ul>
+</nav>
+
+{{> components/common/navigation}}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-2">
+            {{#if template '===' 'pages/home'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+            {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+            {{/if}}
+
+        </div>
+        <div class="col-lg-10 vertical-center">
+
+            <div class="navPages-container" id="menu" data-menu>
+                <div class="row">
+                    <div class="col-sm-9"> 
+                        {{> components/common/navigation-menu}}
+                    </div>
+                    <div class="col-sm-3">
+                        <nav class="navPages">
+                            <ul class="navPages-list">
+                                <li class="navPages-item">
+                                    <a class=" navPages-action" href="{{urls.account.wishlists.all}}"><i class="fa fa-heart-o" aria-hidden="true"></i>{{customer.wishlists.num_items}}</a>
+                                </li>
+                                <li class="navPages-item">
+                                    <a class="navPages-action navPages-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="navPages-item navPages-item--cart">
+                                    <a
+                                    class="navPages-action"
+                                    data-cart-preview
+                                    data-dropdown="cart-preview-dropdown"
+                                    data-options="align:right"
+                                    href="{{urls.cart}}">
+                                    <span class="navPages-item-cartLabel"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                                </a>
+
+                                <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+        <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+            {{> components/common/quick-search}}
+        </div>
+    </div>           
+</div>
+{{{region name="header_bottom"}}}
+</div>
+
+</header>

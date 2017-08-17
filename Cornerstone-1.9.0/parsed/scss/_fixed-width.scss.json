@@ -1,0 +1,1 @@
+{"_fixed-width.scss":"// Fixed Width Icons\n// -------------------------\n.#{$fa-css-prefix}-fw {\n  width: (18em / 14);\n  text-align: center;\n}\n"}
